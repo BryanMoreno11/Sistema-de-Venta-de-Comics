@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 11.5" name="BDComics">
+  <DataContextMoniker Name="/BDComicsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ec0b1ed9-11f7-44dc-8259-c5c91dc9acaa" absoluteBounds="3.125, 2.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BDComicsDataContext/Serie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="775f66aa-9941-4c69-bc71-994fec63e9c9" absoluteBounds="3.14, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45e717aa-477b-439b-9106-8b81487b0b5b" absoluteBounds="0.5, 6.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/BDComicsDataContext/Autor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="095e9cf9-d85e-48d1-b4a6-8e952e9e3c20" absoluteBounds="0.51500000000000012, 7.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a438786-8391-40ee-b7f7-36c0f263e5b7" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/BDComicsDataContext/Genero" />
+      <nestedChildShapes>
+        <elementListCompartment Id="287272d6-c30c-4683-8415-d382e06cbdeb" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3b3f67f-110b-4693-8742-305fd8ad578e" absoluteBounds="3.125, 9.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/BDComicsDataContext/Editorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="898ab8d3-c3b3-45b1-8744-fb882b8a8945" absoluteBounds="3.14, 10.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" absoluteBounds="6.75, 3.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/BDComicsDataContext/Comic" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09279614-cc11-45cb-8f5e-c50746ffacb2" absoluteBounds="6.765, 4.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 7.83579752604167); (7.13541416666667 : 7.83579752604167 : JumpStart); (7.30208083333333 : 7.83579752604167 : JumpEnd); (8.01562625 : 7.83579752604167); (8.01562625 : 6.35740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Autor/Autor_Comic" />
+      <nodes>
+        <classShapeMoniker Id="45e717aa-477b-439b-9106-8b81487b0b5b" />
+        <classShapeMoniker Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 10.5681469726562); (7.2187475 : 10.5681469726562); (7.2187475 : 6.35740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Editorial/Editorial_Comic" />
+      <nodes>
+        <classShapeMoniker Id="c3b3f67f-110b-4693-8742-305fd8ad578e" />
+        <classShapeMoniker Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 1.19314697265625); (7.75 : 1.19314697265625); (7.75 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Genero/Genero_Comic" />
+      <nodes>
+        <classShapeMoniker Id="1a438786-8391-40ee-b7f7-36c0f263e5b7" />
+        <classShapeMoniker Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 3.85179768880208); (6.75 : 3.85179768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Serie/Serie_Comic" />
+      <nodes>
+        <classShapeMoniker Id="ec0b1ed9-11f7-44dc-8259-c5c91dc9acaa" />
+        <classShapeMoniker Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a5c96990-7fe9-4e5d-b027-a34c4690a71c" absoluteBounds="3.25, 5.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/BDComicsDataContext/Factura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0f77b07-e82e-4742-a019-5c66a1a687d3" absoluteBounds="3.265, 5.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f34ec03f-fc54-4cd4-9d7a-d6ab176d7ad7" absoluteBounds="9.5, 4.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/BDComicsDataContext/Detalle_Factura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d53427dd-ca49-4a39-8138-b2218b9d90c1" absoluteBounds="9.515, 5.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 5.31814697265625); (9.5 : 5.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Comic/Comic_Detalle_Factura" />
+      <nodes>
+        <classShapeMoniker Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" />
+        <classShapeMoniker Id="f34ec03f-fc54-4cd4-9d7a-d6ab176d7ad7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 4.90907348632813); (9.5 : 4.90907348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Comic/Comic_Detalle_Factura1" />
+      <nodes>
+        <classShapeMoniker Id="f2a73a3c-ecc8-4581-96c0-b549a9fd87bb" />
+        <classShapeMoniker Id="f34ec03f-fc54-4cd4-9d7a-d6ab176d7ad7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 6.75405110677083); (7.13541416666667 : 6.75405110677083 : JumpStart); (7.30208083333333 : 6.75405110677083 : JumpEnd); (7.93229291666667 : 6.75405110677083 : JumpStart); (8.09895958333333 : 6.75405110677083 : JumpEnd); (10.5 : 6.75405110677083); (10.5 : 6.0112939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Factura/Factura_Detalle_Factura" />
+      <nodes>
+        <classShapeMoniker Id="a5c96990-7fe9-4e5d-b027-a34c4690a71c" />
+        <classShapeMoniker Id="f34ec03f-fc54-4cd4-9d7a-d6ab176d7ad7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7ab90892-1904-4bd1-afca-db4392c7ad6c" absoluteBounds="0.625, 3.375, 2, 2.5401025390625">
+      <DataClassMoniker Name="/BDComicsDataContext/Cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e1887f9-e04e-4c50-ab86-914b1dc64809" absoluteBounds="0.64000000000000012, 3.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 5.52005126953125); (3.25 : 5.52005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDComicsDataContext/Cliente/Cliente_Factura" />
+      <nodes>
+        <classShapeMoniker Id="7ab90892-1904-4bd1-afca-db4392c7ad6c" />
+        <classShapeMoniker Id="a5c96990-7fe9-4e5d-b027-a34c4690a71c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

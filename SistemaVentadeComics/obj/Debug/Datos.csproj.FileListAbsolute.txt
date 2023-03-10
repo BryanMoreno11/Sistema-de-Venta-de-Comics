@@ -1,0 +1,10 @@
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\bin\Debug\SistemaVentadeComics.dll.config
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\bin\Debug\SistemaVentadeComics.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\bin\Debug\SistemaVentadeComics.pdb
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\bin\Debug\Entidades.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\bin\Debug\Entidades.pdb
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\obj\Debug\SistemaVentadeComics.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\SistemaVentadeComics\obj\Debug\SistemaVentadeComics.pdb

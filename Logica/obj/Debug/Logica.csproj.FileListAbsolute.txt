@@ -1,0 +1,12 @@
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\Logica.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\Logica.pdb
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\Entidades.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\SistemaVentadeComics.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\Entidades.pdb
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\SistemaVentadeComics.pdb
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\bin\Debug\SistemaVentadeComics.dll.config
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\obj\Debug\Logica.csproj.CopyComplete
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\obj\Debug\Logica.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Logica\obj\Debug\Logica.pdb

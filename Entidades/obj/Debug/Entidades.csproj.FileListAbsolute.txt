@@ -1,0 +1,6 @@
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Entidades\bin\Debug\Entidades.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Entidades\obj\Debug\Entidades.dll
+C:\Users\Steven\Documents\C# Programs\SistemaVentadeComics\Entidades\obj\Debug\Entidades.pdb

@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VentadeComics" Class="BDComicsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-JBP41ID;Initial Catalog=VentadeComics;Integrated Security=True" SettingsObjectName="SistemaVentadeComics.Properties.Settings" SettingsPropertyName="VentadeComicsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Serie" Member="Serie">
+    <Type Name="Serie">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Serie_Comic" Member="Comic" ThisKey="id" OtherKey="id_serie" Type="Comic" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Autor" Member="Autor">
+    <Type Name="Autor">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Autor_Comic" Member="Comic" ThisKey="id" OtherKey="id_autor" Type="Comic" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Genero" Member="Genero">
+    <Type Name="Genero">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Genero_Comic" Member="Comic" ThisKey="id" OtherKey="id_genero" Type="Comic" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Editorial" Member="Editorial">
+    <Type Name="Editorial">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Editorial_Comic" Member="Comic" ThisKey="id" OtherKey="id_editorial" Type="Comic" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comic" Member="Comic">
+    <Type Name="Comic">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="id_serie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_genero" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_autor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_editorial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Comic_Detalle_Factura" Member="Detalle_Factura" ThisKey="id" OtherKey="id_comic" Type="Detalle_Factura" />
+      <Association Name="Comic_Detalle_Factura1" Member="Detalle_Factura1" ThisKey="id" OtherKey="id_comic" Type="Detalle_Factura" />
+      <Association Name="Autor_Comic" Member="Autor" ThisKey="id_autor" OtherKey="id" Type="Autor" IsForeignKey="true" />
+      <Association Name="Editorial_Comic" Member="Editorial" ThisKey="id_editorial" OtherKey="id" Type="Editorial" IsForeignKey="true" />
+      <Association Name="Genero_Comic" Member="Genero" ThisKey="id_genero" OtherKey="id" Type="Genero" IsForeignKey="true" />
+      <Association Name="Serie_Comic" Member="Serie" ThisKey="id_serie" OtherKey="id" Type="Serie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Factura" Member="Factura">
+    <Type Name="Factura">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_cliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="iva" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="subtotal" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Factura_Detalle_Factura" Member="Detalle_Factura" ThisKey="id" OtherKey="id_factura" Type="Detalle_Factura" />
+      <Association Name="Cliente_Factura" Member="Cliente" ThisKey="id_cliente" OtherKey="id" Type="Cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Detalle_Factura" Member="Detalle_Factura">
+    <Type Name="Detalle_Factura">
+      <Column Name="id_factura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_comic" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Comic_Detalle_Factura" Member="Comic" ThisKey="id_comic" OtherKey="id" Type="Comic" IsForeignKey="true" />
+      <Association Name="Comic_Detalle_Factura1" Member="Comic1" ThisKey="id_comic" OtherKey="id" Type="Comic" IsForeignKey="true" />
+      <Association Name="Factura_Detalle_Factura" Member="Factura" ThisKey="id_factura" OtherKey="id" Type="Factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="Cliente">
+    <Type Name="Cliente">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="sexo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="cedula" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fecha_nacimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="Cliente_Factura" Member="Factura" ThisKey="id" OtherKey="id_cliente" Type="Factura" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CP_EliminarSerie" Method="CP_EliminarSerie">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarSerie" Method="CP_InsertarSerie">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <ElementType Name="CP_InsertarSerieResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarSerieFiltro" Method="CP_ListarSerieFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarSerieFiltroResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ModificarSerie" Method="CP_ModificarSerie">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarAutor" Method="CP_InsertarAutor">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="apellido" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <ElementType Name="CP_InsertarAutorResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_EliminarAutor" Method="CP_EliminarAutor">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ModificarAutor" Method="CP_ModificarAutor">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="apellido" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ListarAutorFiltro" Method="CP_ListarAutorFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarAutorFiltroResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarGeneroFiltro" Method="CP_ListarGeneroFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarGeneroFiltroResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_InsertarGenero" Method="CP_InsertarGenero">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <ElementType Name="CP_InsertarGeneroResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ModificarGenero" Method="CP_ModificarGenero">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarGenero" Method="CP_EliminarGenero">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarComic" Method="CP_EliminarComic">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarComic" Method="CP_InsertarComic">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="idserie" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idgenero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idautor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ideditorial" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="precio" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Parameter Name="stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <ElementType Name="CP_InsertarComicResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarVistaComic" Method="CP_ListarVistaComic">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarVistaComicResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="serie" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="genero" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="autor" Type="System.String" DbType="VarChar(51) NOT NULL" CanBeNull="false" />
+      <Column Name="editorial" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ModificarComic" Method="CP_ModificarComic">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="idserie" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idgenero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idautor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ideditorial" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="precio" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Parameter Name="stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarEditorial" Method="CP_InsertarEditorial">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <ElementType Name="CP_InsertarEditorialResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ModificarEditorial" Method="CP_ModificarEditorial">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarEditorial" Method="CP_EliminarEditorial">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ListarEditorial" Method="CP_ListarEditorial">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarEditorialResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarComicFiltro" Method="CP_ListarComicFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarComicFiltroResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="id_serie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_genero" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_autor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_editorial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_EliminarCliente" Method="CP_EliminarCliente">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarDetalleFactura" Method="CP_InsertarDetalleFactura">
+    <Parameter Name="idfactura" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idcomic" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantidad" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarFactura" Method="CP_InsertarFactura">
+    <Parameter Name="id_cliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fecha" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="iva" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="subtotal" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="total" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="CP_InsertarFacturaResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarFactura" Method="CP_ListarFactura">
+    <ElementType Name="CP_ListarFacturaResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_cliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="iva" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="subtotal" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ModificarCliente" Method="CP_ModificarCliente">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="sexo" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="cedula" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="fecha_nacimiento" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="direccion" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="telefono" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="correo" Type="System.String" DbType="VarChar(25)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarCliente" Method="CP_InsertarCliente">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="sexo" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="cedula" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="fecha_nacimiento" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="direccion" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="telefono" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="correo" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_InsertarClienteResult">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarClienteFiltro" Method="CP_ListarClienteFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarClienteFiltroResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="sexo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="cedula" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fecha_nacimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
