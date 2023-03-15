@@ -1,5 +1,6 @@
 ﻿using SistemaVentadeComics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
+using System.Windows.Forms;
 
 namespace Logica
 {

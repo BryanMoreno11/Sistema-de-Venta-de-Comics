@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -170,5 +171,8 @@ namespace VentadeComics
             if (activeForm != null)
                 activeForm.Close();
         }
+
+
+        
     }
 }
